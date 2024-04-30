@@ -1,0 +1,30 @@
+<article>
+  <img class="listing-photo" [src]="casa?.photo"
+    alt="Exterior photo of {{casa?.name}}"/>
+  <section class="listing-description">
+    <h2 class="listing-heading">{{casa?.name}}</h2>
+    <p class="listing-location">{{casa?.city}}, {{casa?.state}}</p>
+  </section>
+  <section class="listing-features">
+    <h2 class="section-heading">About this housing location</h2>
+    <ul>
+      <li>Units available: {{casa?.availableUnits}}</li>
+      <li>Does this location have wifi: {{casa?.wifi}}</li>
+      <li>Does this location have laundry: {{casa?.laundry}}</li>
+    </ul>
+  </section>
+  <section class="listing-apply">
+    <h2 class="section-heading">Quiero más información</h2>
+    <form [formGroup]="formularioPeticion" (submit)="enviarPeticion()">
+      <label for="first-name">Nombre</label>
+      <input id="first-name" type="text" formControlName="nombre">
+
+      <label for="last-name">Apellido</label>
+      <input id="last-name" type="text" formControlName="apellido">
+
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email">
+      <button type="submit" class="primary">Enviar petición</button>
+    </form>
+  </section>
+</article>
