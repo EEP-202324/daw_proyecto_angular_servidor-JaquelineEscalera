@@ -1,0 +1,23 @@
+[
+  {
+    "id": 99,
+    "nombre": "Nombre1",
+    "apellido": "Apellido1",
+    "correo": "correo1@example.com",
+    "telefono": "123456789"
+  },
+  {
+    "id": 100,
+    "nombre": "Nombre2",
+    "apellido": "Apellido2",
+    "correo": "correo2@example.com",
+    "telefono": "987654321"
+  },
+  {
+    "id": 101,
+    "nombre": "Nombre3",
+    "apellido": "Apellido3",
+    "correo": "correo3@example.com",
+    "telefono": "555555555"
+  }
+]
