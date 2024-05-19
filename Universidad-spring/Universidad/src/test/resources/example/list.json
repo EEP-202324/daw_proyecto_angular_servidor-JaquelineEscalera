@@ -1,23 +1,5 @@
 [
-  {
-    "id": 99,
-    "nombre": "Nombre1",
-    "apellido": "Apellido1",
-    "correo": "correo1@example.com",
-    "telefono": "123456789"
-  },
-  {
-    "id": 100,
-    "nombre": "Nombre2",
-    "apellido": "Apellido2",
-    "correo": "correo2@example.com",
-    "telefono": "987654321"
-  },
-  {
-    "id": 101,
-    "nombre": "Nombre3",
-    "apellido": "Apellido3",
-    "correo": "correo3@example.com",
-    "telefono": "555555555"
-  }
+  {"id": 99, "nombre": "Juan", "apellido": "Perez", "correo": "juan.perez@example.com", "numero": "1234567890"},
+  {"id": 100, "nombre": "Ana", "apellido": "Gomez", "correo": "ana.gomez@example.com", "numero": "0987654321"},
+  {"id": 101, "nombre": "Carlos", "apellido": "Sanchez", "correo": "carlos.sanchez@example.com", "numero": "1122334455"}
 ]
