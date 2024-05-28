@@ -11,7 +11,7 @@ export class UniversidadComponent {
   universidad : Universidad[] =[];
   universidadSeleccionado?: Universidad;
 
-  constructor(private UniversidadService: UniversidadService) {
+  constructor(private servicioDeUniversidad: UniversidadService) {
 
   }
 
@@ -20,9 +20,8 @@ export class UniversidadComponent {
   }
 
   getUniversidad(): void {
-    this.UniversidadService.getUniversidad().subscribe(
-      Recibidos => this.universidad = this.universidadRecibidos
-    );
+    this.universidad = this.servicioDeUniversidad.getUniversidad();
+  }
 
   onSelect(universidad: Universidad): void {
     this.universidadSeleccionado = universidad;
