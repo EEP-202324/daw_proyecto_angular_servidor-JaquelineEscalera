@@ -20,7 +20,9 @@ export class UniversidadComponent {
   }
 
   getUniversidad(): void {
-    this.universidad = this.servicioDeUniversidad.getUniversidad();
+    this.servicioDeUniversidad.getUniversidad().subscribe(
+      universidadesRecibidos => this.universidad = universidadesRecibidos
+    );
   }
 
   onSelect(universidad: Universidad): void {

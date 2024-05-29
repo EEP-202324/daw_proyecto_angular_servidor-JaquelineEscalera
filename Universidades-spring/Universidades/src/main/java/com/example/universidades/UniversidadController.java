@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,4 +41,27 @@ public class UniversidadController {
 	            .toUri();
 	   return ResponseEntity.created(locationOfNewUniversidad).build();
 	}
+	
+	@GetMapping()
+	private ResponseEntity<Iterable<Universidad>> findAll() {
+	   return ResponseEntity.ok(universidadRepository.findAll());
+	}
+	
+	@PutMapping("/{requestedId}")
+    private ResponseEntity<Void> putUniversidad(@PathVariable Long requestedId, @RequestBody Universidad universidadActualizada) {
+        Optional<Universidad> optional = universidadRepository.findById(requestedId);
+        if (optional.isPresent()) {
+            Universidad universidad = optional.get();
+            Universidad updateUniversidad = new Universidad (
+                        universidad.getId(),
+                        universidadActualizada.getNombre(),
+                        universidadActualizada.getGmail(),
+                        universidadActualizada.getNumero());
+            universidadRepository.save(updateUniversidad);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+
+    }
 }
