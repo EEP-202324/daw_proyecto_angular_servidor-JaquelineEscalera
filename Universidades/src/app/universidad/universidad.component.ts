@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Universidad } from '../universidad';
 import { UniversidadService } from '../universidad.service';
+import { MensajeService } from '../mensaje.service';
 
 @Component({
   selector: 'app-universidad',
@@ -11,7 +12,7 @@ export class UniversidadComponent {
   universidad : Universidad[] =[];
   universidadSeleccionado?: Universidad;
 
-  constructor(private servicioDeUniversidad: UniversidadService) {
+  constructor(private servicioDeUniversidad: UniversidadService, private servicioDeMensajes: MensajeService) {
 
   }
 
@@ -27,5 +28,6 @@ export class UniversidadComponent {
 
   onSelect(universidad: Universidad): void {
     this.universidadSeleccionado = universidad;
+    this.servicioDeMensajes.add(`UniversidadComponent: Universidad seleccionado: id=${universidad.id}`)
   }
 }

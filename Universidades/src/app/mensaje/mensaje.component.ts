@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { MensajeService } from '../mensaje.service';
 
 @Component({
-  selector: 'app-mensaje',
+  selector: 'app-mensajes',
   templateUrl: './mensaje.component.html',
   styleUrl: './mensaje.component.css'
 })
-export class MensajeComponent {
-
+export class MensajesComponent {
+  constructor(public servicioDeMensajes: MensajeService) {}
 }
