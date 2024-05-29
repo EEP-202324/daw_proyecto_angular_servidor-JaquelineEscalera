@@ -8,19 +8,19 @@ import { UniversidadService } from '../universidad.service';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
-  universidadTop:Universidad[] = [];
+  universidades:Universidad[] = [];
 
   constructor(private servicioDeUniversidades: UniversidadService) {
 
   }
 
   ngOnInit(): void {
-    this.getUniversidad();
+    this.getUniversidades();
   }
 
-  getUniversidad(): void {
-    this.servicioDeUniversidades.getUniversidad().subscribe(
-      UniversidadRecibidos => this.universidadTop = UniversidadRecibidos.slice(1, 5)
+  getUniversidades(): void {
+    this.servicioDeUniversidades.getUniversidades().subscribe(
+      universidades => this.universidades = universidades.slice(1, 5)
     );
   }
 }

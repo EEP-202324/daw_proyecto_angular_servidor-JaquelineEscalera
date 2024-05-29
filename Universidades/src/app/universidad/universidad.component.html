@@ -1,9 +1,8 @@
 <h2>Mis universidades</h2>
 <ul class="universidad">
-  <li *ngFor = "let universidad of universidad">
-    <button type="button" (click)="onSelect(universidad)" [class.selected]="universidad === universidadSeleccionado">
-      <span class="badge">{{universidad.id}}</span>
-      <span class="nombre">{{universidad.nombre}}</span>
-    </button>
+  <li *ngFor = "let universidad of universidades">
+    <a routerLink="/detail/{{universidad.id}}">
+      <span class="badge">{{universidad.id}}</span> {{universidad.nombre}}
+    </a>
   </li>
 </ul>

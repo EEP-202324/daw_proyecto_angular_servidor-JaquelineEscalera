@@ -11,9 +11,15 @@ export class UniversidadService {
 
   constructor(private servicioDeMensajes: MensajeService) { }
 
-  getUniversidad(): Observable<Universidad[]> {
-    const universidad: Observable<Universidad[]> = of(UNIVERSIDAD)
-    this.servicioDeMensajes.add("UniversidadService: universidades recuperadas");
+  getUniversidades(): Observable<Universidad[]> {
+    const universidad = of(UNIVERSIDAD);
+    this.servicioDeMensajes.add('UniversidadService: fetched universidad');
     return universidad;
+  }
+
+  getUniversidad(id: number): Observable<Universidad> {
+    const universidad = UNIVERSIDAD.find(h => h.id === id)!;
+    this.servicioDeMensajes.add(`UnivesidadService: fetched universidad id=${id}`);
+    return of(universidad);
   }
 }
