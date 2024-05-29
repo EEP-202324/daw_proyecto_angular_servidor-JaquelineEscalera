@@ -75,19 +75,19 @@ class UniversidadesApplicationTests {
 
 		DocumentContext documentContext = JsonPath.parse(response.getBody());
 		int universidadCount = documentContext.read("$.length()");
-		assertThat(universidadCount).isEqualTo(3);
+		assertThat(universidadCount).isEqualTo(2);
 
 		JSONArray ids = documentContext.read("$..id");
-		assertThat(ids).containsExactlyInAnyOrder(1, 2, 3);
+		assertThat(ids).containsExactlyInAnyOrder(1, 3);
 
 		JSONArray nombres = documentContext.read("$..nombre");
-		assertThat(nombres).containsExactlyInAnyOrder("Universidad Complutense de Madrid", "Juan", "Marta");
+		assertThat(nombres).containsExactlyInAnyOrder("Universidad Complutense de Madrid", "Marta");
 
 		JSONArray gmails = documentContext.read("$..gmail");
-		assertThat(gmails).containsExactlyInAnyOrder("juancho@gmail.com", "juancho@gmail.com", "mar@gmail.com");
+		assertThat(gmails).containsExactlyInAnyOrder("juancho@gmail.com",  "mar@gmail.com");
 
 		JSONArray numeros = documentContext.read("$..numero");
-		assertThat(numeros).containsExactlyInAnyOrder("685993254", "685993254", "685946684");
+		assertThat(numeros).containsExactlyInAnyOrder("685993254",  "685946684");
 	}
 
 	@Test
@@ -119,5 +119,18 @@ class UniversidadesApplicationTests {
 	    ResponseEntity<Void> response = restTemplate
 	            .exchange("/ universidades/99999", HttpMethod.PUT, request, Void.class);
 	    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+	}
+	
+	@Test
+	@DirtiesContext
+	void shouldDeleteAnExistingUniversidad() {
+	    ResponseEntity<Void> response = restTemplate
+	            .exchange("/universidades/2", HttpMethod.DELETE, null, Void.class);
+	    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
+	    
+	 // Add the following code:
+	    ResponseEntity<String> getResponse = restTemplate
+	            .getForEntity("/universidades/2", String.class);
+	    assertThat(getResponse.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
 	}
 }

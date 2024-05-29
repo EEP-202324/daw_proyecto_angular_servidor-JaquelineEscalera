@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -64,4 +65,10 @@ public class UniversidadController {
         }
 
     }
+	
+	@DeleteMapping("/{id}")
+	private ResponseEntity<Void> deleteUniversidad(@PathVariable Long id) {
+		  universidadRepository.deleteById(id); // Add this line
+		return ResponseEntity.noContent().build();
+	}
 }
