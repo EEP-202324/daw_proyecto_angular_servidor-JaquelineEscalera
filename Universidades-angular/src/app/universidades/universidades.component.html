@@ -1,6 +1,18 @@
-<h2>{{universidad.nombre | uppercase}} Details</h2>
-<div><span>id: </span>{{universidad.id}}</div>
-<div>
-  <label for="name">Nombre de la Universidad: </label>
-  <input id="name" [(ngModel)]="universidad.nombre" placeholder="name">
+<h2>Mis universidades</h2>
+<ul class="heroes">
+  <li *ngFor="let universidad of universidades">
+    <button [class.selected]="universidad === selectedUniversidad" type="button" (click)="onSelect(universidad)">
+      <span class="badge">{{universidad.id}}</span>
+      <span class="name">{{universidad.nombre}}</span>
+    </button>
+  </li>
+</ul>
+
+<div *ngIf="selectedUniversidad">
+  <h2>{{selectedUniversidad.nombre | uppercase}} Detalles</h2>
+  <div>id: {{selectedUniversidad.id}}</div>
+  <div>
+    <label for="hero-name">Nombre de la Universidad: </label>
+    <input id="hero-name" [(ngModel)]="selectedUniversidad.nombre" placeholder="name">
+  </div>
 </div>

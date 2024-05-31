@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Universidad } from '../universidad';
+import { UNIVERSIDADES } from '../mock-universidades';
 
 @Component({
   selector: 'app-universidades',
@@ -7,8 +8,10 @@ import { Universidad } from '../universidad';
   styleUrl: './universidades.component.css'
 })
 export class UniversidadesComponent {
-  universidad: Universidad = {
-    id: 1,
-    nombre: 'Complutense'
-  };
+  universidades: Universidad[] = UNIVERSIDADES;
+  selectedUniversidad?: Universidad;
+
+onSelect(universidad: Universidad): void {
+  this.selectedUniversidad = universidad;
+}
 }
