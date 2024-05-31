@@ -11,7 +11,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class UniversidadService {
 
-  private universidadesUrl = 'api/heroes';  // URL to web api
+  private universidadesUrl = 'http://localhost:8080/universidades';  // URL to web api
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }

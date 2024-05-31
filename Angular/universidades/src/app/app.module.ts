@@ -9,8 +9,6 @@ import { UniversidadDetailComponent } from './universidad-detail/universidad-det
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 import { UniversidadSearchComponent } from './universidad-search/universidad-search.component';
 
 @NgModule({
@@ -27,9 +25,6 @@ import { UniversidadSearchComponent } from './universidad-search/universidad-sea
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
   ],
   providers: [
     provideClientHydration()
