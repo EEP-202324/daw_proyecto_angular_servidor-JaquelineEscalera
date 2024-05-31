@@ -15,4 +15,10 @@ export class UniversidadService {
     this.mensajeService.add('UniversidadService: fetched universidades')
     return universidades;
   }
+
+  getUniversidad(id: number): Observable<Universidad> {
+    const universidad = UNIVERSIDADES.find(h => h.id === id)!;
+    this.mensajeService.add(`UniversidadService: fetched hero id=${id}`);
+    return of(universidad);
+  }
 }
