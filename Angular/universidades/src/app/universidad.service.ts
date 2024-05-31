@@ -62,6 +62,20 @@ export class UniversidadService {
     );
   }
 
+  /* GET heroes whose name contains search term */
+  searchHeroes(term: string): Observable<Universidad[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Universidad[]>(`${this.universidadesUrl}/?name=${term}`).pipe(
+      tap(x => x.length ?
+        this.log(`found universidades matching "${term}"`) :
+        this.log(`no universidades matching "${term}"`)),
+      catchError(this.handleError<Universidad[]>('searchUniversidades', []))
+    );
+  }
+
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
