@@ -1,16 +1,18 @@
-import { Component, Input  } from '@angular/core';
-import {Universidad} from '../universidad';
+import { Component, OnInit  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UniversidadService } from '../universidad.service';
 import { Location } from '@angular/common';
+
+import {Universidad} from '../universidad';
+import { UniversidadService } from '../universidad.service';
+
 
 @Component({
   selector: 'app-universidad-detail',
   templateUrl: './universidad-detail.component.html',
   styleUrl: './universidad-detail.component.css'
 })
-export class UniversidadDetailComponent {
-  @Input() universidad?: Universidad;
+export class UniversidadDetailComponent implements OnInit {
+  universidad: Universidad | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,11 +25,25 @@ export class UniversidadDetailComponent {
   }
 
   getUniversidad(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     this.universidadService.getUniversidad(id).subscribe(
-      universidadRecibido => this.universidad = universidadRecibido);
+      universidad => this.universidad = universidad);
   }
   goBack(): void {
     this.location.back();
   }
+  save(): void {
+    if (this.universidad) {
+      this.universidadService.updateUniversidad(this.universidad)
+        .subscribe(() => this.goBack());
+    }
+  }
+ // add(name: string): void {
+  //  name = name.trim();
+   // if (!name) { return; }
+   // this.universidadService.addUniversidad({ nombre } as Universidad)
+   //   .subscribe(universidad => {
+  //      this.universidades.push(universidad);
+  //    });
+  //}
 }

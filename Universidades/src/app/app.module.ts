@@ -8,21 +8,28 @@ import { UniversidadComponent } from './universidad/universidad.component';
 import { UniversidadDetailComponent } from './universidad-detail/universidad-detail.component';
 import { MensajesComponent } from './mensaje/mensaje.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { UniversidadSearchComponent } from './universidad-search/universidad-search.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     UniversidadComponent,
     UniversidadDetailComponent,
     MensajesComponent,
-    DashboardComponent
+    DashboardComponent,
+    UniversidadSearchComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
-  ],
-  providers: [
-    provideClientHydration()
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   bootstrap: [AppComponent]
 })
