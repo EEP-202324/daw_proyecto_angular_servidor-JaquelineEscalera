@@ -10,6 +10,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UniversidadSearchComponent } from './universidad-search/universidad-search.component';
+import { AgregarUniversidadComponent } from './agregar-universidad/agregar-universidad.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UniversidadSearchComponent } from './universidad-search/universidad-sea
     UniversidadDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    UniversidadSearchComponent
+    UniversidadSearchComponent,
+    AgregarUniversidadComponent
   ],
   imports: [
     BrowserModule,

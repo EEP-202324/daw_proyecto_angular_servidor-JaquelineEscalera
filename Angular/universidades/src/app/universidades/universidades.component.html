@@ -9,11 +9,7 @@
   </li>
 </ul>
 <div>
-  <label for="new-hero">Hero name: </label>
-  <input id="new-hero" #universidadName />
-
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button type="button" class="add-button" (click)="add(universidadName.value); universidadName.value=''">
-    Add hero
+  <button type="button" class="add-button" (click)="goToAddUniversidad()">
+    Agregar Universidad
   </button>
 </div>

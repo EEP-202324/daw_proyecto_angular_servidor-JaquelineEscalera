@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Universidad } from '../universidad';
 import { UniversidadService } from '../universidad.service';
 import { MessageService } from '../message.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-universidades',
@@ -9,7 +10,9 @@ import { MessageService } from '../message.service';
   styleUrl: './universidades.component.css'
 })
 export class UniversidadesComponent implements OnInit {
-  constructor(private universidadService: UniversidadService, private messageService: MessageService) {}
+  constructor(private universidadService: UniversidadService, private messageService: MessageService,
+    private router: Router
+  ) {}
   universidades: Universidad[] = [];
 
   ngOnInit(): void {
@@ -20,13 +23,8 @@ export class UniversidadesComponent implements OnInit {
         .subscribe(universidades => this.universidades = universidades);
   }
 
-  add(nombre: string): void {
-    nombre = nombre.trim();
-    if (!nombre) { return; }
-    this.universidadService.addUnversidad({ nombre } as Universidad)
-      .subscribe(universidad => {
-        this.universidades.push(universidad);
-      });
+  goToAddUniversidad(): void {
+    this.router.navigate(['/agregar-universidad']);
   }
 
   delete(universidad: Universidad): void {
