@@ -1,0 +1,13 @@
+<h2>Agregar Nueva Escuela</h2>
+<form (ngSubmit)="addUniversidad()">
+  <div>
+    <label for="nombre">Nombre: </label>
+    <input type="text" id="nombre" [(ngModel)]="universidad.nombre" name="nombre" required>
+    <label for="nombre">Gmail: </label>
+    <input type="text" id="nombre" [(ngModel)]="universidad.gmail" name="nombre" required>
+    <label for="nombre">Número: </label>
+    <input type="text" id="nombre" [(ngModel)]="universidad.numero" name="nombre" required>
+  </div>
+  <button type="submit">Agregar</button>
+</form>
+<button (click)="goBack()">Cancelar</button>

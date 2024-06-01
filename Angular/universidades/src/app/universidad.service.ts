@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Universidad } from './universidad';
-import { UNIVERSIDADES } from './mock-universidades';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -38,14 +37,15 @@ export class UniversidadService {
 
   /** PUT: update the hero on the server */
   updateUniversidad(universidad: Universidad): Observable<any> {
-    return this.http.put(this.universidadesUrl, universidad, this.httpOptions).pipe(
+    const url = `${this.universidadesUrl}/${universidad.id}`;
+    return this.http.put<Universidad>(url, universidad, this.httpOptions).pipe(
       tap(_ => this.log(`updated universidad id=${universidad.id}`)),
       catchError(this.handleError<any>('updateUniversidad'))
     );
   }
 
   /** POST: add a new hero to the server */
-  addUnversidad(universidad: Universidad): Observable<Universidad> {
+  addUniversidad(universidad: Universidad): Observable<Universidad> {
     return this.http.post<Universidad>(this.universidadesUrl, universidad, this.httpOptions).pipe(
       tap((newUniversidad: Universidad) => this.log(`added universidad w/ id=${newUniversidad.id}`)),
       catchError(this.handleError<Universidad>('addHero'))
