@@ -51,22 +51,19 @@ public class UniversidadController {
 	}
 	
 	@PutMapping("/{requestedId}")
-    private ResponseEntity<Void> putUniversidad(@PathVariable Long requestedId, @RequestBody Universidad universidadActualizada) {
-        Optional<Universidad> optional = universidadRepository.findById(requestedId);
-        if (optional.isPresent()) {
-            Universidad universidad = optional.get();
-            Universidad updateUniversidad = new Universidad (
-                        universidad.getId(),
-                        universidadActualizada.getNombre(),
-                        universidadActualizada.getGmail(),
-                        universidadActualizada.getNumero());
-            universidadRepository.save(updateUniversidad);
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-
-    }
+	public ResponseEntity<Void> putUniversidad(@PathVariable Long requestedId, @RequestBody Universidad universidadActualizada) {
+	    Optional<Universidad> optional = universidadRepository.findById(requestedId);
+	    if (optional.isPresent()) {
+	        Universidad universidad = optional.get();
+	        universidad.setNombre(universidadActualizada.getNombre()); 
+	        universidad.setGmail(universidadActualizada.getGmail()); 
+	        universidad.setNumero(universidadActualizada.getNumero()); 
+	        universidadRepository.save(universidad);
+	        return ResponseEntity.noContent().build();
+	    } else {
+	        return ResponseEntity.notFound().build();
+	    }
+	}
 	
 	@DeleteMapping("/{id}")
 	private ResponseEntity<Void> deleteUniversidad(@PathVariable Long id) {
