@@ -15,9 +15,9 @@
 }
 
 .heroes a {
-  color: #333;
+  color: #A33;
   text-decoration: none;
-  background-color: #EEE;
+  background-color: #F7DDE9;
   margin: .5em;
   padding: .3em 0;
   height: 1.6em;
@@ -27,12 +27,12 @@
 }
 
 .heroes a:hover {
-  color: #2c3a41;
-  background-color: #e6e6e6;
+  color: #E91E63; 
+  background-color: #E6B8C7; 
 }
 
 .heroes a:active {
-  background-color: #525252;
+  background-color: #944; 
   color: #fafafa;
 }
 
@@ -41,7 +41,7 @@
   font-size: small;
   color: white;
   padding: 0.8em 0.7em 0 0.7em;
-  background-color: #405061;
+  background-color: #A33; 
   line-height: 1em;
   position: relative;
   left: -1px;
