@@ -1,5 +1,0 @@
-[
-  {"id": 99, "nombre": "Juan", "apellido": "Perez", "correo": "juan.perez@example.com", "numero": "1234567890"},
-  {"id": 100, "nombre": "Ana", "apellido": "Gomez", "correo": "ana.gomez@example.com", "numero": "0987654321"},
-  {"id": 101, "nombre": "Carlos", "apellido": "Sanchez", "correo": "carlos.sanchez@example.com", "numero": "1122334455"}
-]
