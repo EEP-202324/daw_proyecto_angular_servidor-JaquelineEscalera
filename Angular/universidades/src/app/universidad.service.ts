@@ -78,7 +78,7 @@ export class UniversidadService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    this.messageService.add(`UniversidadService: ${message}`);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
