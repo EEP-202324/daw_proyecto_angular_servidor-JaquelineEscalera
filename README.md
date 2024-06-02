@@ -37,4 +37,5 @@ BBDD
 (½* por consulta) 
 2* Test Unitarios (min 2 por verbo) 
 * ¼ por test 
-### Video AppUniversidad_JaquelineEscalera.mp4
+### Video 
+https://eepmad-my.sharepoint.com/:v:/g/personal/ajaqueline-escalera1_eep-igroup_com/EVN3WMelTSpNuoKu_z713ksBZp_UPAhLvtrVmbYPfnXs-w?e=525aoB&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
